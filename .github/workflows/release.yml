@@ -45,7 +45,7 @@ jobs:
         run: pnpm build
 
       - name: Resolve release tag
-        run: echo "RELEASE_TAG=v$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+        run: echo "RELEASE_TAG=v$(node -p 'require("./package.json").version')" >> $GITHUB_ENV
 
       - name: Publish to npm
         run: npm publish --access public --tag "${{ inputs.npm_tag }}"
